@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
-const api = require('./routes/index.js');
-
-const PORT = process.env.port || 3001;
 
 const app = express();
+const PORT = process.env.port || 3001;
+const dir = path.join(__dirname, "/public");
+
 
 const notes = require('./db/db.json');
 
@@ -29,6 +29,7 @@ app.get('*', (req, res) => {
 app.get('/api/notes', (req, res) => {
     res.json(notes.slice(1));
 });
+
 
 
 app.listen(PORT, () =>
