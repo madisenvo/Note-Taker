@@ -1,4 +1,6 @@
 const notes = require('express').Router();
+const path = require("path");
+const fs = require("fs");
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
@@ -13,31 +15,33 @@ notes.post('/', (req, res) => {
     console.info(`${req.method} request received to add a note`);
     console.log(req.body);
 
-    const {title, note} = req.body;
+    const {title, text} = req.body;
 
     if (req.body) {
     const newNote = {
         title,
-        note,
+        text,
         note_id: uuid(),
     };
 
     readAndAppend(newNote, './db/db.json');
-    res.json(`Note added successfully 🚀`);
+    res.json(`Note added`);
     } else {
     res.error('Error in adding note');
     }
 });
 
-notes.delete('/api/notes/:id', (req, res) => {
-    notes.splice(req.params.id, 1);
+notes.delete('/notes/:id', (req, res) => {
+    JSON.parse(data).splice(req.params.id, 1);
 
-    fs.writeFileSync('db/db.json', JSON.stringify(notes), (err) => {
+    fs.writeFileSync('db/db.json', JSON.stringify(data), (err) => {
         if (err) {
             console.log(err);
         } else {
-            console.log("Note Deleted");
+            console.log('Note deleted');
         }
-})});
+    })
+});
+
 
 module.exports = notes
