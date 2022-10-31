@@ -29,4 +29,15 @@ notes.post('/', (req, res) => {
     }
 });
 
-module.exports = notes;
+notes.delete('/api/notes/:id', (req, res) => {
+    notes.splice(req.params.id, 1);
+
+    fs.writeFileSync('db/db.json', JSON.stringify(notes), (err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("Note Deleted");
+        }
+})});
+
+module.exports = notes
