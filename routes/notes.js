@@ -30,7 +30,7 @@ notes.post('/', (req, res) => {
     }
 });
 
-// delete not yet working, further troubleshooting needed
+// delete returning 404, further troubleshooting needed
 notes.delete('/notes/:id', (req, res) => {
     let notesList = JSON.parse(data);
     for (let i = 0; i < notesList.length; i++) {
