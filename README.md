@@ -1,6 +1,6 @@
 # Note-Taker
 
-https://infinite-shelf-70708.herokuapp.com/notes
+https://infinite-shelf-70708.herokuapp.com/
 
 ## Description
   
