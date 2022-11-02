@@ -30,12 +30,13 @@ notes.post('/', (req, res) => {
     }
 });
 
+// delete not yet working, further troubleshooting needed
 notes.delete('/notes/:id', (req, res) => {
-    for (let i = 0; i < notes.length; i++) {
-        if (notes[i].id == req.params.id) {
+    let notesList = JSON.parse(data);
+    for (let i = 0; i < notesList.length; i++) {
+        if (notesList[i].id === req.params.id) {
             notes.splice(i, 1);
-            break;
-        }};
+        }}
 
     fs.writeFileSync('db/db.json', JSON.stringify(data), (err) => {
         if (err) {

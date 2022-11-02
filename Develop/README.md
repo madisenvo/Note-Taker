@@ -4,18 +4,12 @@
   
 Note Taker can be used to write and save notes. It uses an Express.js back end and saves and retreives note data from a JSON file. 
 
-![note](assets/images/notes.png)
-
-## Installation
-
-Run the following command to install dependencies:
-```md
-npm install 
-```
-
 ## Usage
 
-Run the following command to launch the application:
-```md
-node server.js
-```
+Launch the application and select "Get Started".
+
+![get started](public/assets/images/start.png)
+
+Add a new note and view saved notes.
+
+![note](public/assets/images/note.png)
